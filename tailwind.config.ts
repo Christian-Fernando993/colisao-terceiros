@@ -32,21 +32,10 @@ module.exports = {
       maxWidth: {
         grid: '77.5rem',
       },
-      height: {
-
-      },
-      keyframes:{
-
-      },
-      animation:{
-
-      },
     },
     screens: {
       '@tablet': '640px',
-
       '@laptop': '1024px',
-
       '@desktop': '1280px',
     },
   },

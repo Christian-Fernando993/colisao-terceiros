@@ -1,0 +1,217 @@
+                {/* Foto da CLRV ou Nota Fiscal */}
+                <div className="py-8">
+                    <div className="@laptop:flex items-center justify-between mb-7">
+                        <div className="mb-3">
+                            <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">CLRV ou nota fiscal</h3>
+                            {/* Informação de foto reprovado */}
+                            <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                        </div>
+                        <Image className="w-64 flex m-auto @laptop:m-0" src={CRLV} alt='Foto da CNH' />
+                    </div>
+
+                    <div className="">
+                        <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                            <input className="hidden" type="file" placeholder="Clique para selecionar imagem do veiculo" />
+                            <p className="font-bromny text-center text-type-blue">
+                                <span className="font-bold">Clique aqui para enviar </span>
+                                ou arraste até aqui
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Foto Boletim de Ocorrencia */}
+                <div className="py-8">
+                    <div className="@laptop:flex items-center justify-between mb-7">
+                        <div className="mb-3">
+                            <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Boletim de ocorrência</h3>
+                            {/* Informação de foto reprovado */}
+                            <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                        </div>
+                        <Image className="w-64 flex m-auto @laptop:m-0" src={Boletim} alt='Foto da CNH' />
+                    </div>
+
+                    <div className="">
+                        <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                            <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                            <p className="font-bromny text-center text-type-blue">
+                                <span className="font-bold">Clique aqui para enviar </span>
+                                ou arraste até aqui
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Fotos dos danos do veiculo */}
+                <div>
+                    {/* Dano 1 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 1</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_01} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 2 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 2</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_02} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 3 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 3</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_03} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 4 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 4</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_04} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 5 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 5</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_05} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                        transition-text easy-in-out duration-500 hover:opacity-100
+                        @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 6 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 6</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_06} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                            transition-text easy-in-out duration-500 hover:opacity-100
+                            @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* Danos 7 */}
+                    <div className="py-8">
+                        <div className="@laptop:flex items-center justify-between mb-7">
+                            <div>
+                                <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">Dano 7</h3>
+                                {/* Informação de foto reprovado */}
+                                <span className="text-red-800 font-bromny font-medium">Foto enviada reprovada, favor enviar nova foto.</span>
+                            </div>
+                            <Image className="w-64 flex m-auto @laptop:m-0" src={Danos_07} alt='Foto da CNH' />
+                        </div>
+
+                        <div className="">
+                            <label className="max-w-md m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-loovi-blue rounded-xl opacity-60
+                                transition-text easy-in-out duration-500 hover:opacity-100 @laptop:max-w-2xl">
+                                <input className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
+                                <p className="font-bromny text-center text-type-blue">
+                                    <span className="font-bold">Clique aqui para enviar </span>
+                                    ou arraste até aqui
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
