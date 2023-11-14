@@ -42,7 +42,7 @@ export function SectionHero() {
         });
     },  [])
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ 
+    const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({ 
         accept: {
             'image/png': ['.png'],
             'image/jpg': ['.jpg'],
@@ -57,17 +57,30 @@ export function SectionHero() {
     });
 
     const thumbs = files.map(file => (
-        <div className="inline-flex rounded-lg mr-2 mb-2 w-full h-full p-4 box-border justify-center" key={file.name}>
+        <div className="inline-flex rounded-lg my-4 w-full h-full box-border justify-center" key={file.name}>
             <div className="flex min-w-0 overflow-hidden">
-                <img className="block w-auto h-full" src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }}/>
+                <Image className="block w-auto h-full rounded-lg" alt="Foto da CNH" width={500} height={500} src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }}/>
             </div>
         </div>
     ));
 
     useEffect(() => {
         return () => files.forEach(file => URL.revokeObjectURL(file.preview))
-    }, []);
+    });
 
+    const removeFile = (file) => () => {
+        const newFiles = [...files]
+        newFiles.splice(newFiles.indexOf(file), 1)
+        setFiles(newFiles)
+    }
+
+    const myFiles = acceptedFiles.map(file => (
+        <li key={file.path} className="flex justify-center ">
+            <button 
+                className="w-32 h-14 bg-red-600 font-bromny rounded-lg text-base text-white mt-4" 
+                onClick={removeFile(file)}>Remover image</button>
+        </li>
+    ))
 
     return (
         <section className="pt-8 @tablet:pt-20">
@@ -76,15 +89,17 @@ export function SectionHero() {
                 <p className="font-bromny text-type-blue">Faça o upload das fotos do veículo.</p>
 
                 {/* Foto da CNH Aberta */}
-                <div className="py-8">
-                    <div className="items-center @laptop:flex @laptop:justify-between mb-7">
+                <div>
+
+                    {/* Titulo e Exemplo de como tirar a foto*/}
+                    <div className="mb-7 ">
                         <div className="mb-3">
-                            <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3">CNH aberta</h3>
+                            <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3 text-center">CNH aberta</h3>
                         </div>
-                        <Image className="w-64 flex m-auto @laptop:m-0" src={CNH_Aberta} alt='Foto da CNH' />
+                        <Image className="w-64 flex m-auto" src={CNH_Aberta} alt='Foto da CNH' 	quality={80}/>
                     </div>
 
-                    {/* Forma 01 de Enviar a foto */}
+                    {/* Metodo de selecionar ou arrastar imagem */}
                     <div {...getRootProps()} 
                         className={`m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-gray-600 rounded-xl transition-text easy-in-out duration-500 p-5 @laptop:max-w-2xl
                         ${isDragActive ? 'border-loovi-blue' : 'border-gray-400'} `}>
@@ -98,14 +113,16 @@ export function SectionHero() {
                                        <span className="font-bold">Solte </span> 
                                        para adicionar
                                     </p>
-                                ) 
-                                : 
-                                (
-                                    <p className="font-bromny text-center text-type-blue cursor-pointer">
-                                        <span className="font-bold">Clique aqui para enviar a foto </span>
-                                        <p className="font-bold">Arquivos suportados</p>
-                                        <span>PDF, JPG, PNG</span>
-                                    </p>
+                                ) : (
+                                    <div>
+                                        <p className="font-bromny text-center text-type-blue cursor-pointer">
+                                            <span className="font-bold text-center">Clique aqui para enviar a foto </span>
+                                        </p>
+                                        <p className="font-bromny text-center text-type-blue cursor-pointer">
+                                            <span className="font-bold">Arquivos suportados: </span>
+                                            <span>PDF, JPG, PNG</span>
+                                        </p>
+                                    </div>
                                 )
                             }
                         </label>
@@ -113,10 +130,19 @@ export function SectionHero() {
                     </div>
 
                     {/* Mostra a imagem importada */}
-                    <aside className="flex flex-row flex-wrap mb-4">
+                    <aside className="flex flex-row flex-wrap">
                         {thumbs}
                     </aside>
+
+                    {/* Botão de remover a imagem */}
+                    <aside>
+                        <ul>
+                            {myFiles}   
+                        </ul>
+                    </aside> 
+
                 </div>
+
             </ContainerGrid>
         </section>
     )
