@@ -24,9 +24,14 @@ import { UploadIcon } from "@/assets/icons/UploadIcon";
 // import { FileIcon } from "@/assets/icons/FileIcon";
 
 
+import { RemoveImage } from '@/helpers/removerimagem/index'
+
+
 export function SectionHero() {
 
     const [files, setFiles] = useState([]);
+
+    // arrastar ou clicar para inserir imagem
 
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
@@ -42,7 +47,10 @@ export function SectionHero() {
         });
     },  [])
 
+    //Formas de aceitar o arquivo
+
     const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({ 
+        maxFiles: 1,
         accept: {
             'image/png': ['.png'],
             'image/jpg': ['.jpg'],
@@ -56,10 +64,13 @@ export function SectionHero() {
         }
     });
 
+    //Preview da imagem
+
     const thumbs = files.map(file => (
-        <div className="inline-flex rounded-lg my-4 w-full h-full box-border justify-center" key={file.name}>
+        <div className="inline-flex rounded-lg mt-4 w-full h-full box-border justify-center" key={file.name}>
             <div className="flex min-w-0 overflow-hidden">
-                <Image className="block w-auto h-full rounded-lg" alt="Foto da CNH" width={500} height={500} src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }}/>
+                <Image className="block w-auto h-full rounded-lg" alt="Foto da CNH" 
+                width={500} height={500} src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }}/>
             </div>
         </div>
     ));
@@ -68,40 +79,46 @@ export function SectionHero() {
         return () => files.forEach(file => URL.revokeObjectURL(file.preview))
     });
 
+
+    // Processo de remover imagem/pdf
+
     const removeFile = (file) => () => {
         const newFiles = [...files]
         newFiles.splice(newFiles.indexOf(file), 1)
         setFiles(newFiles)
     }
 
-    const myFiles = acceptedFiles.map(file => (
-        <li key={file.path} className="flex justify-center ">
-            <button 
-                className="w-32 h-14 bg-red-600 font-bromny rounded-lg text-base text-white mt-4" 
-                onClick={removeFile(file)}>Remover image</button>
-        </li>
+    const removerImagem = acceptedFiles.map(file => (
+        <div key={file.path} className="flex items-center justify-center mt-4">
+            <button className="w-32 h-12 px-2 bg-red-600 hover:bg-red-700 font-bromny rounded-full text-base text-white" 
+                onClick={removeFile(file)}>Remover
+            </button>
+        </div>
     ))
 
     return (
-        <section className="pt-8 @tablet:pt-20">
+        <section className="pt-10">
             <ContainerGrid className='flex flex-col'>
-                <h2 className="text-2xl @laptop:text-3xl text-type-blue font-bromny font-semibold @laptop:pb-3">EVIDÊNCIA DO SINISTRO</h2>
-                <p className="font-bromny text-type-blue">Faça o upload das fotos do veículo.</p>
+                <h2 className="text-center text-2xl text-type-blue font-bromny font-semibold pb-3.5
+                    @tablet:pb-0 @laptop:text-3xl">
+                        EVIDÊNCIA DO SINISTRO</h2>
+                <p className="text-center font-bromny text-type-blue pb-3.5 @laptop:pb-5">Faça o upload das fotos do veículo.</p>
 
                 {/* Foto da CNH Aberta */}
                 <div>
 
                     {/* Titulo e Exemplo de como tirar a foto*/}
-                    <div className="mb-7 ">
-                        <div className="mb-3">
-                            <h3 className="text-2xl text-type-blue font-bromny font-semibold mb-3 text-center">CNH aberta</h3>
+                    <div className="pb-5 ">
+                        <div className="pb-3.5">
+                            <h3 className="text-2xl text-type-blue font-bromny font-semibold pb-3.5 text-center">CNH aberta</h3>
                         </div>
-                        <Image className="w-64 flex m-auto" src={CNH_Aberta} alt='Foto da CNH' 	quality={80}/>
+                        <Image className="w-64 flex m-auto" src={CNH_Aberta} alt="Foto da CNH Aberta" quality={80}/>
                     </div>
 
                     {/* Metodo de selecionar ou arrastar imagem */}
+
                     <div {...getRootProps()} 
-                        className={`m-auto aspect-video flex items-center justify-center border-dashed border-2 cursor-pointer border-gray-600 rounded-xl transition-text easy-in-out duration-500 p-5 @laptop:max-w-2xl
+                        className={`m-auto flex items-center justify-center border-dashed border-2 cursor-pointer border-gray-600 rounded-xl transition-text easy-in-out duration-500 p-5 @laptop:max-w-2xl
                         ${isDragActive ? 'border-loovi-blue' : 'border-gray-400'} `}>
                         <label htmlFor="dropzone-file">
                             <input {...getInputProps()} className="hidden" type="file" accept=".jpg .jpeg .pdf" placeholder="Clique para selecionar imagem do veiculo" />
@@ -136,9 +153,7 @@ export function SectionHero() {
 
                     {/* Botão de remover a imagem */}
                     <aside>
-                        <ul>
-                            {myFiles}   
-                        </ul>
+                        {removerImagem}   
                     </aside> 
 
                 </div>
