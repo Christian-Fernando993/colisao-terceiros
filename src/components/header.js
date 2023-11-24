@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 import { ContainerGrid } from '@/components/container'
 import Logo from '@/assets/logo_loovi_branco.svg'
 

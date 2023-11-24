@@ -22,7 +22,6 @@ const bromny = localFont({
       style: 'normal'
     }
   ]
-
 })
 
 export const metadata: Metadata = {
@@ -30,11 +29,7 @@ export const metadata: Metadata = {
   description: 'Colisão de Terceiros foi desenvolvido para os nosso assegurados Loovi está envolvido a um acidente e necessita que envie as fotos do veiculo na qual bateu.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({children,}: {children: React.ReactNode}) {
   return (
     <html lang="pt-br">
       <body className={`${bromny.variable}`}>
